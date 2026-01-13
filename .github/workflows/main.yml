@@ -32,8 +32,10 @@ jobs:
         run: sleep 10
 
   job4:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     needs: [job1, job2, job3]
     steps:
       - name: Job with multiple dependencies
         run: sleep 10
+      - name: Checking Runner info
+        run: sw_vers
