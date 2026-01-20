@@ -20,7 +20,7 @@ jobs:
           echo `pwd` >> myartifact.txt
           mkdir artifacts
           echo `ls -ltr` >> artifacts/list.txt
-          hostname
+          echo `hostname` >> artifacts/hostname.txt
       - name: Upload Single file
         uses: actions/upload-artifact@v6.0.0
         with:
@@ -30,3 +30,23 @@ jobs:
           retention-days: 2
           overwrite: true
           include-hidden-files: false
+      - name: Upload directory
+        uses: actions/upload-artifact@v6.0.0
+        with:
+            name: directory_artifacts
+            path: artifacts/
+      - name: Upload from multiple paths
+        uses: actions/upload-artifact@v6.0.0
+        with:
+          name: multiple_paths
+          path: |
+            ./myartifact.txt
+            artifacts/
+      - name: Upload from multiple paths with exclusions
+        uses: actions/upload-artifact@v6.0.0
+        with:
+          name: multiple_paths_with_exclusions
+          path: |
+            ./myartifact.txt
+            artifacts/
+            !**/hostname.txt
