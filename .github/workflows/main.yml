@@ -24,7 +24,7 @@ jobs:
       - name: Upload Single file
         uses: actions/upload-artifact@v6.0.0
         with:
-          name: artifact_sample
+          name: single_file
           path: ./myartifact.txt
           if-no-files-found: warn
           retention-days: 2
@@ -50,3 +50,21 @@ jobs:
             ./myartifact.txt
             artifacts/
             !**/hostname.txt
+
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking current directory
+        run: | 
+          pwd
+          ls -ltr
+      - name: Download single file artifact
+        uses: actions/download-artifact@v6.0.0
+        with:
+          name: single_file
+      - name: checking current directory post download
+        run: | 
+          pwd
+          ls -ltr
+          
