@@ -109,7 +109,7 @@ jobs:
       - name: Download directory
         uses: actions/download-artifact@v7.0.0
         with:
-            name: download_artifacts
+            name: directory_artifacts
             path: download_directory
       - name: checking current directory post directory download
         run: |
