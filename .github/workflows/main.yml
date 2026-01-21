@@ -2,7 +2,7 @@ name: first-workflow
 
 on:
   push:
-    branches: ["dev", "feature-*"]
+    branches: ["main"]
   pull_request: 
     branches: ["main"]
 
@@ -51,4 +51,4 @@ jobs:
           pwd
           ls -ltr
       - name: Step for PR demos
-        run: exit 1
+        run: exit 0
