@@ -26,7 +26,7 @@ jobs:
           mkdir reports/
           pytest --junitxml=reports/unit-test-results.xml --cov=. --cov-report-term-missing -v
       - name: Upload code coverega reports
-        uses: actions/upload-artifact@v6.0.2
+        uses: actions/upload-artifact@v6.0.0
         with: 
           name: unit-test-report
           path: reports/
