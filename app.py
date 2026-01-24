@@ -21,7 +21,7 @@ def home():
     return jsonify({"message": "Welcome to Task Manager API"}), 200
 
 
-@app.route("/tasks", ethods = ["GET"])
+@app.route("/tasks", methods = ["GET"])
 def get_tasks():
     return jsonify(tasks), 200
 
